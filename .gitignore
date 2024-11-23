@@ -1,0 +1,21 @@
+# Byte-compiled files
+__pycache__/
+*.pyc
+
+# Local environment files
+.env
+*.env
+
+# SQLite database
+gallery.db
+
+# Thumbnails directory (optional)
+thumbnails/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# IDE-specific files
+.idea/
+.vscode/
