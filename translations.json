@@ -1,0 +1,30 @@
+{
+    "en": {
+        "welcome_main": "Welcome to the Lithuanian Stock Image Gallery. Explore and download beautiful images taken in Lithuania!",
+        "main_page": "Main Page",
+        "gallery_page": "Gallery",
+        "welcome_gallery": "Welcome to the gallery page!",
+        "select_language": "🌐 Select Language:",
+        "upload_image": "Upload Image",
+        "image_selected": "You have selected an image:",
+        "selected_image": "Selected Image",
+        "please_confirm_selection": "Please confirm the selection of the image before uploading:",
+        "confirm_selection": "Confirm Selection",
+        "upload_success": "Image uploaded successfully!",
+        "download_success": "Image downloaded successfully!"
+    },
+    "lt": {
+        "welcome_main": "Sveiki atvykę į Lietuvos nuotraukų galeriją!",
+        "main_page": "Pagrindinis",
+        "gallery_page": "Galerija",
+        "welcome_gallery": "Sveiki užsukę į galeriją!",
+        "select_language": "🌐 Pasirinkite kalbą:",
+        "upload_image": "Įkelti nuotrauką",
+        "image_selected": "Jūs pasirinkote nuotrauką:",
+        "selected_image": "Pasirinkta nuotrauka",
+        "please_confirm_selection": "Patvirtinkite nuotraukos įkėlimą",
+        "confirm_selection": "Įkelti nuotrauką",
+        "upload_success": "Nuotrauka buvo sėkmingai įkelta!",
+        "download_success": "Nuotrauka buvo sėkmingai atsisiųsta!"
+    }
+}
