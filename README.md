@@ -1,4 +1,5 @@
-# Fotobankas - # Streamlit Image Gallery with Dropbox Integration
+# Fotobankas
+## Streamlit Image Gallery with Dropbox Integration
 
 This repository contains a Streamlit web application that allows users to upload images, view them in a gallery, and manage their metadata through integration with Dropbox and a local SQLite database. 
 
