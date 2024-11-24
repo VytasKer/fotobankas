@@ -3,7 +3,7 @@ import subprocess
 import sys
 
 # List of required packages
-required_packages = ["streamlit", "dropbox", "sqlite-utils"]
+required_packages = ["streamlit", "dropbox", "sqlite-utils", "python-dotenv"]
 
 # Install missing packages
 for package in required_packages:

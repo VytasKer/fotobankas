@@ -4,6 +4,7 @@ import streamlit.components.v1 as components
 import dropbox
 from utils import load_translations
 from utils import add_image_to_db
+from utils import initialize_dropbox_client
 
 #---------------------------------------------------------------------------------------------------
 # Function declaration
@@ -48,8 +49,6 @@ def save_thumbnail(image_name):
         # Generate thumbnail (raw bytes)
         thumbnail_result = dbx.files_get_thumbnail_v2(dropbox.files.PathOrLink.path(dropbox_path), size=dropbox.files.ThumbnailSize.w640h480)
 
-        st.write(thumbnail_result)
-
         # Extract the raw thumbnail bytes from the response (2nd item in tuple)
         thumbnail_bytes = thumbnail_result[1].content
 
@@ -79,7 +78,10 @@ def thumbnail_button():
 
 # Dropbox Python API Documentation https://dropbox-sdk-python.readthedocs.io/en/latest/
 # Initialize Dropbox API
-dbx = dropbox.Dropbox('sl.CBTP7svIzxil2Q8GidrldnbAmxtHoSnz758pL0xNCScDG6ngReVZHAC2XtHXHLC7VH4IG4jmtVHjcqUSuKwTObSQHPHeFVMsrBgrG78wvF13ccfZmSW01IBeV8eE0EmQxIeoVLQtjKFk')
+try:
+    dbx = initialize_dropbox_client()
+except ValueError as e:
+    st.error(f"Error initializing Dropbox API: {e}")
 
 # Language selection
 language = st.sidebar.radio(
@@ -95,6 +97,9 @@ st.title(t("main_page"))
 # Webpage description
 st.write(t("welcome_main"))
 
+# Button to upload image
+st.button("Upload Image", on_click=upload_button)
+
 # Upload button session state
 if 'clicked' not in st.session_state:
     st.session_state.clicked = False
@@ -102,11 +107,9 @@ if 'clicked' not in st.session_state:
 if st.session_state.clicked:
     upload_image_to_dropbox()
 
-# Button to upload image
-st.button("Upload Image", on_click=upload_button)
-
-# Sample image display
-st.image("https://via.placeholder.com/400x200", caption="Sample Image", use_container_width=True)
+# Button to show thumbnail
+st.write("---")
+st.button("Get test thumbnail", on_click=thumbnail_button)
 
 # Thumbnail button session state
 if 'clicked_thumbnail' not in st.session_state:
@@ -114,6 +117,3 @@ if 'clicked_thumbnail' not in st.session_state:
 
 if st.session_state.clicked_thumbnail:
     save_thumbnail("autumn-lithuania.jpg")
-
-# Button to show thumbnail
-st.button("Get test thumbnail", on_click=thumbnail_button)

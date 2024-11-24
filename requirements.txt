@@ -1,3 +1,4 @@
 streamlit
 dropbox
 sqlite-utils
+python-dotenv

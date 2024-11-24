@@ -4,6 +4,7 @@ import streamlit.components.v1 as components
 import dropbox
 from utils import load_translations
 from utils import fetch_images_from_db
+from utils import initialize_dropbox_client
 import tempfile
 import sqlite3
 
@@ -68,7 +69,10 @@ def download_button():
 #---------------------------------------------------------------------------------------------------
 
 # Initialize Dropbox API
-dbx = dropbox.Dropbox('sl.CBTP7svIzxil2Q8GidrldnbAmxtHoSnz758pL0xNCScDG6ngReVZHAC2XtHXHLC7VH4IG4jmtVHjcqUSuKwTObSQHPHeFVMsrBgrG78wvF13ccfZmSW01IBeV8eE0EmQxIeoVLQtjKFk')
+try:
+    dbx = initialize_dropbox_client()
+except ValueError as e:
+    st.error(f"Error initializing Dropbox API: {e}")
 
 # Language selection
 language = st.sidebar.radio(
